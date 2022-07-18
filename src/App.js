@@ -1,10 +1,12 @@
-
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/NavBar/NavBar';
 function App() {
   return (
     <div className="App">
-      <h1>First app with react</h1>
+      <div className='NavBar'>
+      <Navbar />
+      </div>
     </div>
   );
 }
