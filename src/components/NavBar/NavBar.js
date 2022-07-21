@@ -1,3 +1,4 @@
+import CartWidget from "./CartWidget";
 import "./NavBar.css"
 
 const NavBar = () =>{
@@ -9,10 +10,10 @@ const NavBar = () =>{
       <img src="./assests/mate.png" width={60} alt=""></img>
       <h2 class="fs-1 text-white txtMate">Mundo Mate</h2>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+     </button>
       <div class="collapse navbar-collapse text-center" id="navbarNav">
           <ul class="navbar-nav ms-auto nav-bar">
               <li class="nav-item px-3 nav-li">
@@ -34,6 +35,7 @@ const NavBar = () =>{
               <li class="nav-item px-3 nav-li">
                   <a class="nav-link nav-color text-light" href="">Contacto</a>
               </li>
+               <CartWidget />
           </ul>
       </div>
   </div>

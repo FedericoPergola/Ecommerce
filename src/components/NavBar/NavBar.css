@@ -2,7 +2,7 @@
     background-color: rgba(0, 0, 0, 0.74);
     justify-content: flex-end;
     /* font-family: 'Edu TAS Beginner', cursive; */
-    font-family: 'Bebas Neue', cursive;
+    /* font-family: 'Bebas Neue', cursive; */
     font-size: 18px;
     
 }
@@ -17,4 +17,13 @@
 .txtMate{
     line-height: normal;
 }
+
+
+.cart button{
+    background: none;
+    border: none;
+    color: white;
+
+}
+
 
