@@ -1,3 +1,4 @@
+import { Button } from "bootstrap";
 const CartWidget = () => {
     return(
         <div className="cart">

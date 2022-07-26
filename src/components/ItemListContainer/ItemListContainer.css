@@ -8,3 +8,12 @@
     margin: 30px;
 
 }
+
+.stock button{
+    width: 25px;
+    height: 50px;
+}
+
+.stock p{
+    padding: 10px;
+}

@@ -2,6 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
 import IteamListContainer from './components/ItemListContainer/ItemListContainer';
+
+
 function App() {
   return (
     <div className="App">
@@ -9,8 +11,7 @@ function App() {
       <Navbar />
       </div>
       <section className='IteamListContainer'>
-      <IteamListContainer title="Mate 1" img="./assests/mate1.jpeg" />
-      <IteamListContainer title="Mate 2" img="./assests/mate2.jpeg"/>
+      <IteamListContainer />
       </section>
     </div>
   );
