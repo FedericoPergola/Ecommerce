@@ -4,13 +4,13 @@ const ItemCount = ({stock}) =>{
     const [count, setCount] = useState(1)
     
     const addNumber = () =>{
-        if (stock != count) {
+        if (stock !== count) {
         setCount(count + 1)
         }
     }
 
     const restNumber = () =>{
-        if (count != 1) {
+        if (count !== 1) {
             setCount(count - 1)
         }
     }
