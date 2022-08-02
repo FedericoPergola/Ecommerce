@@ -2,6 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
 import IteamListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {BrowserRouter ,Routes, Route} from 'react-router-dom'
 
 
 function App() {
@@ -10,9 +12,10 @@ function App() {
       <div className='NavBar'>
       <Navbar />
       </div>
-      <section className='IteamListContainer'>
+      <ItemDetailContainer />
+      {/* <section className='IteamListContainer'>
       <IteamListContainer />
-      </section>
+      </section> */}
     </div>
   );
 }
