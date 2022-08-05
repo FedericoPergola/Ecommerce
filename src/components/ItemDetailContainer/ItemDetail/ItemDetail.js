@@ -1,19 +1,19 @@
 import "./ItemDetail.css"
 
-const ItemDetail = ({dataDetail}) =>{
-    return(
-        <>
-         {dataDetail.map( (products1) =>{
+const ItemDetail = ({data}) =>{
+    // return(
+    //     <>
+    //      {dataDetail.map( (products) =>{
             return(
                 <>
                 <div className="itemDetail-container d-flex justify-content-center mt-5">
                     <div className="itemDetail-img ">
-                        <img className="border border-dark"src= {products1.img} alt="..."></img>
+                        <img className="border border-dark" src= {`../../assests/${data.img}`} alt="..."></img>
                     </div>
                     <div className="itemDetail-info">
-                        <h1 className="fs-3 p-2">{products1.title}</h1>
-                        <h3 className="fs-5 p-2 mt-5 w-75">{products1.description}</h3>
-                        <p className="fs-3 p-2">${products1.price}</p>
+                        <h1 className="fs-3 p-2">{data.title}</h1>
+                        <h3 className="fs-5 p-2 mt-5 w-75">{data.description}</h3>
+                        <p className="fs-3 p-2">${data.price}</p>
                         <div>
                             <p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
@@ -35,9 +35,9 @@ const ItemDetail = ({dataDetail}) =>{
                 </div>
                 </>
             )
-        })}
-        </>
-    )
-}
+        }
+//        </>
+//     )
+// }
 
 export default ItemDetail;
