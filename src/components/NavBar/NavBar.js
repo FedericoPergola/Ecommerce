@@ -24,20 +24,20 @@ const NavBar = () =>{
                       <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"  >
                         Productos
                       </a>
-                      <ul class="dropdown-menu bg-black dropdownMenu" aria-labelledby="navbarDropdown">
+                      <ul class="dropdown-menu bg-black dropdownMenu">
                         <li><Link to='/category/mates'><a class="dropdown-item text-white fs-5" href="#">Mates</a></Link></li>
                         <li><Link to='/category/bombillas'><a class="dropdown-item text-white fs-5" href="#">Bombillas</a></Link></li>
                       {/* <Link to='/category/yerbas'><li><a class="dropdown-item text-white fs-5" href="#">Yerbas</a></li></Link> */}
-                        <li><Link to='/products'><a class="dropdown-item text-white fs-5" href="#">Todo</a></Link></li>
+                        <li><Link to='/products'><a class="dropdown-item text-white fs-5" href="#">Ver todo</a></Link></li>
                       </ul>
                     </li>
                     <li class="nav-item px-3 nav-li">
                         <a class="nav-link nav-color text-light" href="">Quines Somos</a>
                     </li>
-                    <Link to='/contacto'><li class="nav-item px-3 nav-li">
+                    <Link to='/contact'><li class="nav-item px-3 nav-li">
                       <a class="nav-link nav-color text-light" href="">Contacto</a></li>
                     </Link>
-                    <CartWidget />
+                  <CartWidget />
                 </ul>
             </div>
         </div>

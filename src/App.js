@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Home from './pages/Home';
 import Contacto from './pages/Contacto';
 import Detail from './pages/Detail';
@@ -20,15 +19,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/products' element={<Home />}/>
-          <Route path='/productos/:id' element={<Detail/>}/>
+          <Route path='/products/:id' element={<Detail/>}/>
           <Route path='/category/:category' element={<IteamListContainer/>}/>
-          <Route path='/contacto' element={<Contacto />}/>
+          <Route path='/contact' element={<Contacto />}/>
           <Route path='*' element={<h1>Error 404</h1>}/>
         </Routes>
-        {/* <ItemDetailContainer /> */}
-        {/* <section className='IteamListContainer'>
-        <IteamListContainer />
-        </section> */}
       </div>
     </BrowserRouter>
   );

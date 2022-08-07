@@ -7,8 +7,12 @@
     
 }
 /* .dropdownMenu{
-    background-color: rgba(0, 0, 0, 0.753);
+    background-color: rgba(0, 0, 0, 0.753) !important;
 } */
+.dropdownMenu a:hover{
+    background-color: rgba(77, 74, 74, 0.74)!important; 
+    
+}
 
 .conteiner{
     width: 100vw;
@@ -29,5 +33,7 @@
 a{
     text-decoration: none;
 }
+
+
 
 

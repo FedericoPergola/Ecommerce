@@ -1,9 +1,8 @@
 import "./ItemDetail.css"
+import ItemCount from "../../ItemCount/ItemCount";
 
 const ItemDetail = ({data}) =>{
-    // return(
-    //     <>
-    //      {dataDetail.map( (products) =>{
+    const {stock} = data
             return(
                 <>
                 <div className="itemDetail-container d-flex justify-content-center mt-5">
@@ -14,6 +13,7 @@ const ItemDetail = ({data}) =>{
                         <h1 className="fs-3 p-2">{data.title}</h1>
                         <h3 className="fs-5 p-2 mt-5 w-75">{data.description}</h3>
                         <p className="fs-3 p-2">${data.price}</p>
+                        <ItemCount stock={stock}/>
                         <div>
                             <p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
@@ -36,8 +36,5 @@ const ItemDetail = ({data}) =>{
                 </>
             )
         }
-//        </>
-//     )
-// }
 
 export default ItemDetail;
