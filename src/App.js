@@ -5,7 +5,9 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Home from './pages/Home';
 import Contacto from './pages/Contacto';
 import Detail from './pages/Detail';
+import IteamListContainer from './components/ItemListContainer/ItemListContainer';
 import {BrowserRouter ,Routes, Route} from 'react-router-dom'
+
 
 
 function App() {
@@ -17,8 +19,9 @@ function App() {
         </div>
         <Routes>
           <Route path='/' element={<Home />}/>
+          <Route path='/products' element={<Home />}/>
           <Route path='/productos/:id' element={<Detail/>}/>
-          <Route path=''/>
+          <Route path='/category/:category' element={<IteamListContainer/>}/>
           <Route path='/contacto' element={<Contacto />}/>
           <Route path='*' element={<h1>Error 404</h1>}/>
         </Routes>
