@@ -9,7 +9,7 @@ const IteamListContainer = () => {
     const [listProducts, setListproducts] = useState([])
     const {category} = useParams()
 
-    const filterCategory = products.filter( (products) => products.category == category)
+    const filterCategory = products.filter( (products) => products.category === category)
 
     const getProducts = new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -20,7 +20,7 @@ const IteamListContainer = () => {
                 resolve(products)
             }
             resolve(products)   
-        }, 2000);
+        }, 500);
     })
 
     useEffect( () =>{
@@ -31,7 +31,7 @@ const IteamListContainer = () => {
             .catch( (e) =>{
                 console.log("Error");
             })
-    }, [])
+    }, [category])
 
     return(
         <>

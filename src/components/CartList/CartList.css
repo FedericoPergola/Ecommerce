@@ -1,0 +1,14 @@
+/* .container{
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 10px;
+} */
+
+.cart-img{
+    max-width: 60%;
+}
+
+.button-trash{
+    border: none;
+    background: none;
+}

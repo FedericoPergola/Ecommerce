@@ -1,7 +1,10 @@
-import {useState} from 'react'
+import { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 
-const ItemCount = ({stock, setQuantitySelected}) =>{
+const ItemCount = ({stock, setQuantitySelected, productData}) =>{
     const [count, setCount] = useState(1)
+    const {addProductToCart} = useContext(CartContext)
     
     
     const addNumber = () =>{
@@ -17,6 +20,7 @@ const ItemCount = ({stock, setQuantitySelected}) =>{
     }
 
     const onAdd = () =>{
+        addProductToCart(productData)
         setQuantitySelected(count)
     }
 
@@ -43,7 +47,7 @@ const ItemCount = ({stock, setQuantitySelected}) =>{
         </div>
         <div class="d-grid gap-2 w-75">
             <button class="btn btn-dark" type="button" onClick={onAdd} >Agregar al carrito</button>
-            <button class="btn btn-light border border-dark" type="button">Comprar</button>
+            <button class="btn btn-light border border-dark" type="button"><Link to={'../cart'} className="text-dark">Comprar</Link></button>
         </div>
         </>
     )

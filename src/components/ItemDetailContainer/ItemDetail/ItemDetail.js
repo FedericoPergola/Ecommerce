@@ -25,7 +25,7 @@ const ItemDetail = ({data}) =>{
                                                         <Link to={'../cart'}><button class="btn btn-dark w-75" type="button">Terminar Compra</button></Link>
                                                         <Link to={'../products'}><button class="btn btn-light border border-dark w-75 mt-2" type="button">Seguir comprando</button></Link>
                                                     </div> : 
-                            <ItemCount stock={stock} setQuantitySelected={setQuantitySelected}/>
+                            <ItemCount stock={stock} setQuantitySelected={setQuantitySelected} productData={data}/>
                         }
                     </div>
                 </div>

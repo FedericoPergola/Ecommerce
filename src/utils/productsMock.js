@@ -2,7 +2,7 @@ const products = [
     {
         id:1,
         category: "mates",
-        title: "MATE CAMIONERO DE ALGARROBO PERSONALIZADO",
+        title: "MATE CAMIONERO PERSONALIZADO",
         img : "mate1.jpeg",
         price: 2199, 
         stock: 6
