@@ -14,21 +14,22 @@ const CartProvider = ({children}) => {
         );
 
         if(isProductInCart) {
-            if(isProductInCart.contador + ItemCount > isProductInCart.stock)
+            if(isProductInCart.count + ItemCount > isProductInCart.stock){
             
-            return false; 
-            isProductInCart.contador += ItemCount
-            setTotalProducts(isProductInCart.contador + totalProducts)
+            return false;
+        } 
+            isProductInCart.count += ItemCount
+            setTotalProducts(isProductInCart.count + totalProducts)
             
         } else {
-            product.contador = ItemCount;
+            product.count = ItemCount;
             setTotalProducts(ItemCount + totalProducts)
             
             setCartProducts ([...cartProducts, product]);
         }   
 
         setTotalCart(
-            totalCart + product.price * product.contador
+            totalCart + product.price * product.count
         )
     }
 
@@ -41,10 +42,10 @@ const CartProvider = ({children}) => {
     const clearProduct = ( id ) => {
         const prod = cartProducts.find((product) => product.id === id)
         setTotalCart(
-            totalCart - prod.price * prod.contador
+            totalCart - prod.price * prod.count
         )
 
-        setTotalProducts(totalProducts - prod.contador)
+        setTotalProducts(totalProducts - prod.count)
 
         const newCart = cartProducts.filter((product) => product.id !== id)
         setCartProducts(newCart);

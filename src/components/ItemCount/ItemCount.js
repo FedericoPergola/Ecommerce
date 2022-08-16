@@ -19,8 +19,8 @@ const ItemCount = ({stock, setQuantitySelected, productData}) =>{
         }
     }
 
-    const onAdd = () =>{
-        addProductToCart(productData)
+    const onAdd = (count) =>{
+        addProductToCart(productData, count)
         setQuantitySelected(count)
     }
 
@@ -46,7 +46,7 @@ const ItemCount = ({stock, setQuantitySelected, productData}) =>{
             </p>
         </div>
         <div class="d-grid gap-2 w-75">
-            <button class="btn btn-dark" type="button" onClick={onAdd} >Agregar al carrito</button>
+            <button class="btn btn-dark" type="button" onClick={()=> onAdd(count)} >Agregar al carrito</button>
             <button class="btn btn-light border border-dark" type="button"><Link to={'../cart'} className="text-dark">Comprar</Link></button>
         </div>
         </>

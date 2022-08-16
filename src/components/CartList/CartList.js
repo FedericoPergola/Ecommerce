@@ -53,11 +53,14 @@ const CartList = () => {
 
                 <div className="row g-12 w-100 mt-5 mb-5">
                     <div className="col-md-5 text-center">
-                        <button className="btn btn-dark" onClick={() => clearAll()}>Borrar todo</button>
+                        <button className="btn btn-light border border-dark px-4" onClick={() => clearAll()}>Borrar todo</button>
                     </div>
-                    <div className="col-md-4 text-center">
+                    <div className="col-md-4 text-end fs-3">
                         Total final: ${ totalCart }
                     </div>
+                </div>
+                <div className="w-100 d-flex justify-content-center">
+                    <button className="w-25 btn btn-dark"><Link to="/check" className="text-white">Finaliar compra</Link></button>
                 </div>
                 </>
                 : 
