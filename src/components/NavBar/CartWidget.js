@@ -13,8 +13,7 @@ const CartWidget = () => {
           {
             cartProducts.length > 0
             ?
-            <span class="position-absolute top-1 start-85 translate-middle badge  bg-danger">{totalProducts}</span>
-          
+            <span class="position-absolute top-1 start-85 translate-middle badge">{totalProducts}</span>
             : ""
           }
         <button  class="btn  position-relative">
