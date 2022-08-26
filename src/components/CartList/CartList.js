@@ -23,6 +23,7 @@ const CartList = () => {
             }
         }), 
         buyer: {}, 
+        date: new Date().toLocaleString(),
         total: totalCart
     })
 
