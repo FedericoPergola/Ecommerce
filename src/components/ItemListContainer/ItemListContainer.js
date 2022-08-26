@@ -1,6 +1,5 @@
 import  { useEffect, useState } from "react";
 import "./ItemListContainer.css"
-// import products from "../../utils/productsMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -47,7 +46,7 @@ useEffect(() =>{
             setListproducts(res)
         })
     // },)
-})
+}, [category])
     //         .then( (res) =>{
     //             setListproducts(res)
     //         })

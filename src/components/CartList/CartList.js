@@ -1,11 +1,52 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
 import "./CartList.css"
+import  Modal  from "../Modal/Modal"
+import db from "../../utils/firebaseConfig"
+import { collection, addDoc } from "firebase/firestore"
+
 
 
 const CartList = () => {
     const { cartProducts, clearAll, clearProduct, totalCart } = useContext(CartContext)
+    const [showModal, setShowModal] = useState(false)
+    const [success, setSuccess] = useState()
+
+    const [order, setOrder] = useState({
+        items: cartProducts.map((product)=>{
+            return {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                count: product.count
+            }
+        }), 
+        buyer: {}, 
+        total: totalCart
+    })
+
+    const [formData, setFormdata] = useState({
+        name: '',
+        phone: '', 
+        email: ''
+    })
+
+    const handleChange = (e) => {
+        setFormdata({...formData, [e.target.name]: e.target.value})
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        clearAll()
+        pushData({...order, buyer:formData})
+    }
+
+    const pushData = async (newOrder) => {
+        const collectionOrder = collection(db, 'ordenes')
+        const orderDoc = await addDoc(collectionOrder, newOrder)
+        setSuccess(orderDoc.id)
+    }
 
     return (
         <div>
@@ -60,7 +101,7 @@ const CartList = () => {
                     </div>
                 </div>
                 <div className="w-100 d-flex justify-content-center">
-                    <button className="w-25 btn btn-dark"><Link to="/check" className="text-white">Finaliar compra</Link></button>
+                    <button className="w-25 btn btn-dark" onClick={() => setShowModal(true)}>Finaliar compra</button>
                 </div>
                 </>
                 : 
@@ -70,6 +111,45 @@ const CartList = () => {
                         <h3><Link to="/">Volver</Link></h3>
                     </div>
                 </>
+            }
+            {showModal &&
+                <Modal title={"DATOS DE CONTACTO"} close={() => setShowModal()}>
+                    {success ? (
+                        <>
+                            <h2>Se realizo Correctamente</h2>
+                            <p>ID de compra: {success}</p>
+                        </>
+                    ) : (
+                    <form className="w-75 mt-4" onSubmit={handleSubmit}>
+                        <div class="mb-4">
+                            {/* <label  class="form-label">Name</label> */}
+                            <input type="text" name="name" placeholder="Ingrese su nombre" class="form-control"
+                            value={formData.name}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        <div class="mb-4">
+                            {/* <label class="form-label">Phone</label> */}
+                            <input type="number" name="phone" placeholder="Ingrese su telefono" class="form-control"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        <div class="mb-4">
+                            {/* <label class="form-label">Email</label> */}
+                            <input type="email" name="email" placeholder="Ingrese su email" class="form-control"
+                            value={formData.email}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        <div class="my-4 form-check">
+                            <input type="checkbox" class="form-check-input"/>
+                            <label class="form-check-label" for="exampleCheck1">Terminos y condiciones</label>
+                        </div>
+                        <button type="submit" className="w-50 btn btn-dark" onClick={() => clearAll()}>Enviar</button>
+                    </form>
+                    )}
+                </Modal>
             }
         </div>
     )

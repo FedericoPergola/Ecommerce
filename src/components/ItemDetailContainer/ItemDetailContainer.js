@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 //Firebase
 import db from "../../utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore"
-import { async } from "@firebase/util"
 
 
 
