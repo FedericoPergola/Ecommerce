@@ -5,6 +5,8 @@ import "./CartList.css"
 import  Modal  from "../Modal/Modal"
 import db from "../../utils/firebaseConfig"
 import { collection, addDoc } from "firebase/firestore"
+import Swal from "sweetalert2"
+import { Bars } from  'react-loader-spinner'
 
 
 
@@ -12,7 +14,31 @@ const CartList = () => {
     const { cartProducts, clearAll, clearProduct, totalCart } = useContext(CartContext)
     const [showModal, setShowModal] = useState(false)
     const [success, setSuccess] = useState()
+    const [ showSpinner, setShowSpinner ] = useState(false)
 
+   
+
+    const clear = ()=>{
+        Swal.fire({
+            title: '¿Queres eliminar todos los productos?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Productos eliminados',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                clearAll() 
+            }
+          })
+    }
     const [order, setOrder] = useState({
         items: cartProducts.map((product)=>{
             return {
@@ -48,6 +74,7 @@ const CartList = () => {
         const orderDoc = await addDoc(collectionOrder, newOrder)
         setSuccess(orderDoc.id)
     }
+
 
     return (
         <div>
@@ -95,64 +122,79 @@ const CartList = () => {
 
                 <div className="row g-12 w-100 mt-5 mb-5">
                     <div className="col-md-5 text-center">
-                        <button className="btn btn-light border border-dark px-4" onClick={() => clearAll()}>Borrar todo</button>
+                        <button className="btn btn-dark px-4" onClick={() => clear()}><span>Borrar todo</span></button>
                     </div>
                     <div className="col-md-4 text-end fs-3">
                         Total final: ${ totalCart }
                     </div>
                 </div>
                 <div className="w-100 d-flex justify-content-center">
-                    <button className="w-25 btn btn-dark" onClick={() => setShowModal(true)}>Finaliar compra</button>
+                    <button className="w-25 btn addCart" onClick={() => setShowModal(true)}><span>Finaliar compra</span></button>
                 </div>
                 </>
                 : 
                 <>
-                    <div className="row text-center">              
+                    <div className="text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="300" fill="currentColor" class="bi bi-cart-x-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
+                        </svg>              
                         <h2 className="p-3">Carrito vacio</h2>
-                        <h3><Link to="/">Volver</Link></h3>
+                        <Link to="/" className="text-dark"><button class="btn addCart px-5"><span>Volver</span></button></Link>
                     </div>
                 </>
             }
             {showModal &&
-                <Modal title={"DATOS DE CONTACTO"} close={() => setShowModal()}>
+                <Modal close={() => setShowModal()}>
                     {success ? (
                         <>
-                            <h2>Se realizo Correctamente</h2>
-                            <p>ID de compra: {success}</p>
+                            <h2 className="mt-5 text-success fs-1 text-center">¡Su pedido se realizo correctamente!</h2>
+                            <p className="mt-5 fs-2 text-center">ID de compra: {success}</p>
+                            <div className="d-flex justify-content-center">
+                            <button className="w-50 btn btn-dark mt-5 "><Link to="/" className="text-light"><span>Volver al inicio</span></Link></button>
+                            </div>
                         </>
                     ) : (
-                    <form className="w-75 mt-4" onSubmit={handleSubmit}>
+                    <>
+                    <h2 className="my-5 text-center fs-1">Datos de contacto</h2> 
+                    <form className="w-75 mt-4 container text-center" novalidate onSubmit={handleSubmit}>
                         <div class="mb-4">
-                            {/* <label  class="form-label">Name</label> */}
-                            <input type="text" name="name" placeholder="Ingrese su nombre" class="form-control"
+                            <input type="text" name="name" placeholder="Ingrese su nombre" class="form-control" id="nameID" required
                             value={formData.name}
                             onChange={handleChange}
                             />
                         </div>
                         <div class="mb-4">
-                            {/* <label class="form-label">Phone</label> */}
-                            <input type="number" name="phone" placeholder="Ingrese su telefono" class="form-control"
+                            <input type="number" name="phone" placeholder="Ingrese su telefono" class="form-control" required
                             value={formData.phone}
                             onChange={handleChange}
                             />
                         </div>
                         <div class="mb-4">
-                            {/* <label class="form-label">Email</label> */}
-                            <input type="email" name="email" placeholder="Ingrese su email" class="form-control"
+                            <input type="email" name="email" placeholder="Ingrese su email" class="form-control" required
                             value={formData.email}
                             onChange={handleChange}
                             />
                         </div>
-                        <div class="my-4 form-check">
-                            <input type="checkbox" class="form-check-input"/>
-                            <label class="form-check-label" for="exampleCheck1">Terminos y condiciones</label>
+                        <div> 
+                            { showSpinner && 
+                            formData.name.length !== 0 &&
+                            formData.phone.length !== 0 &&
+                            formData.email.length !== 0 
+                            
+                            ?
+                            <Bars color = 'black' width = "100" height = "100" ariaLabel="bars-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}/> : "" }
+                        <button type="submit" className="w-50 btn btn-dark" onClick={() => setShowSpinner(true)}><span>Enviar</span></button>
                         </div>
-                        <button type="submit" className="w-50 btn btn-dark" onClick={() => clearAll()}>Enviar</button>
                     </form>
+                    </>
                     )}
                 </Modal>
             }
         </div>
+    
     )
 }  
 

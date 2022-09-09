@@ -10,54 +10,35 @@ const IteamListContainer = () => {
     const [listProducts, setListproducts] = useState([])
     const {category} = useParams()
 
-    // const filterCategory = products.filter( (products) => products.category === category)
-
-    // const getProducts = new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //         if (category) {
-    //             resolve(filterCategory)
+    
+    useEffect(() =>{
+        const getProducts = async () =>{
+            const productCollection = category
+            ? query(collection(db, "productos"), where("category", "==", category))
             
-    //         } else {
-    //             resolve(products)
-    //         }
-    //         resolve(products)   
-    //     }, 500);
-    // })
-useEffect(() =>{
-    const getProducts = async () =>{
-        const productCollection = category
-        ? query(collection(db, "productos"), where("category", "==", category))
-        
-        :collection(db, 'productos')
-        
-        
-        const productSnapshot = await getDocs(productCollection)
-        const productList = productSnapshot.docs.map( (doc) =>{
-            let product = doc.data()
-            product.id = doc.id
-            return product
-        })
-        return productList
-    }
+            :collection(db, 'productos')
+            
+            
+            const productSnapshot = await getDocs(productCollection)
+            const productList = productSnapshot.docs.map( (doc) =>{
+                let product = doc.data()
+                product.id = doc.id
+                return product
+            })
+            return productList
+        }
 
-    // useEffect( () =>{
         getProducts()
         .then((res) =>{
             setListproducts(res)
         })
-    // },)
-}, [category])
-    //         .then( (res) =>{
-    //             setListproducts(res)
-    //         })
-    //         .catch( (e) =>{
-    //             console.log("Error");
-    //         })
-    // }, [category])
+    }, [category])
 
     return(
         <>
-        <ItemList dataProducts={listProducts}/>
+        <section className='IteamListContainer'>
+            <ItemList dataProducts={listProducts}/>
+        </section>
         </>
     )
 }

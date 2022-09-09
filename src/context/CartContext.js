@@ -1,4 +1,7 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
+
+
 
 export const CartContext = createContext()
 
@@ -7,7 +10,18 @@ const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
     const [totalCart, setTotalCart] = useState(0)
     let [totalProducts, setTotalProducts] = useState(0)
-
+    
+    const alerClearProduct = ()=>{
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Producto eliminado',
+            toast: true,
+            showConfirmButton: false,
+            timer: 1500
+          })
+    }
+    
     const addProductToCart = (product, ItemCount) => {
         let isProductInCart = cartProducts.find(
             (productInCart) => productInCart.id === product.id
@@ -49,6 +63,7 @@ const CartProvider = ({children}) => {
 
         const newCart = cartProducts.filter((product) => product.id !== id)
         setCartProducts(newCart);
+        alerClearProduct()
     }
 
     const data = {

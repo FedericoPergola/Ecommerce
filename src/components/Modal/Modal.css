@@ -7,16 +7,17 @@
 .modal-custom {
     position: fixed;
     z-index: 1;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
-    width: 80vw;
-    height: 90vh;
+    background: #bca388;
+    width: 50vw;
+    height: 60vh;
     box-shadow: 1px 5px 5px #00000047;
     border-radius: 5px;
     padding: 20px;
     overflow: hidden;
+    border: solid 10px #554740;
 }
 .modal-custom svg {
     position: absolute;
@@ -24,17 +25,6 @@
     top: 40px;
     cursor: pointer;
 }
-/* // .modal-custom:before {
-//     content: "";
-//     width: 100vw;
-//     height: 100vh;
-//     background: black;
-//     position: fixed;
-//     z-index: -1;
-//     left: 0px;
-//     top: 0px;
-//     position: fixed;
-// } */
 
 .modal-custom img {
     width: 100%;

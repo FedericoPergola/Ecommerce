@@ -1,0 +1,17 @@
+.stock button{
+    background-color:#554740 ;
+    color: white
+}
+
+.addCart{
+    background-color:#554740 ;
+    color: white
+}
+
+.addCart:hover{
+    color: white;
+}
+
+.buy{
+    border: solid #554740;
+}

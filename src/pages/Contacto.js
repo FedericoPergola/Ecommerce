@@ -1,9 +1,9 @@
+// import Contact from "../components/About/About"
 
+// const About = () =>{
+//     return(
+//         <h1><Contact /></h1>
+//     )
+// }
 
-const Contacto = () =>{
-    return(
-        <h1>CONTACTO</h1>
-    )
-}
-
-export default Contacto
+// export default Contacto

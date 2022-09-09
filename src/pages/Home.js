@@ -2,9 +2,12 @@ import IteamListContainer from "../components/ItemListContainer/ItemListContaine
 
 const Home = () =>{
     return(
-        <section className='IteamListContainer'>
-            <IteamListContainer />
-        </section>
+        <>
+        <div>
+            <img className="w-100" src="../assests/banner.jpeg" alt=""></img>
+        </div>
+        <IteamListContainer />
+        </>
     )
 }
 

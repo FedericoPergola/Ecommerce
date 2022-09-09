@@ -12,18 +12,17 @@ const ItemDetail = ({data}) =>{
 
             return(
                 <>
-                <div className="itemDetail-container d-flex justify-content-center mt-5">
+                <div className="itemDetail-container d-flex justify-content-center pt-5">
                     <div className="itemDetail-img ">
                         <img className="border border-dark" src= {`../../assests/${data.img}`} alt="..."></img>
                     </div>
                     <div className="itemDetail-info">
                         <h1 className="fs-3 p-2">{data.title}</h1>
-                        <h3 className="fs-5 p-2 mt-5 w-75">{data.description}</h3>
                         <p className="fs-3 p-2">${data.price}</p>
                         {
-                            quantitySelected > 0 ? <div>
-                                                        <Link to={'../cart'}><button class="btn btn-dark w-75" type="button">Terminar Compra</button></Link>
-                                                        <Link to={'../products'}><button class="btn btn-light border border-dark w-75 mt-2" type="button">Seguir comprando</button></Link>
+                            quantitySelected > 0 ? <div className="mt-5">
+                                                        <Link to={'../cart'}><button class="btn addCart w-75" type="button"><span>Terminar Compra</span></button></Link>
+                                                        <Link to={'../products'}><button class="btn btn-light buy w-75 mt-2" type="button">Seguir comprando</button></Link>
                                                     </div> : 
                             <ItemCount stock={stock} setQuantitySelected={setQuantitySelected} productData={data}/>
                         }
