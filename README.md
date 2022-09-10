@@ -19,7 +19,7 @@ Mundo Mate es un ecommerce que te permite realizar compras utilizando un carrito
 
 ### Gif
 
-![image]()
+![image](./public/assests/gif1.gif)
 
 
 ### Creador ✒️

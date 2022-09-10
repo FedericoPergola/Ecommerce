@@ -27,15 +27,11 @@ const NavBar = () =>{
                       <ul class="dropdown-menu dropdownMenu text-center">
                         <li><Link to='/category/mates'><a class="dropdown-item text-white fs-5" href="#">Mates</a></Link></li>
                         <li><Link to='/category/bombillas'><a class="dropdown-item text-white fs-5" href="#">Bombillas</a></Link></li>
-                        <li><Link to='/products'><a class="dropdown-item text-white fs-5" href="#">Ver todo</a></Link></li>
                       </ul>
                     </li>
                     <Link to='/about'><li class="nav-item px-3 nav-li">
-                        <a class="nav-link nav-color text-light" href="">Quines Somos</a>
+                        <a class="nav-link nav-color text-light" href="">Quienes Somos</a>
                     </li>
-                    </Link>
-                    <Link to='/contact'><li class="nav-item px-3 nav-li">
-                      <a class="nav-link nav-color text-light" href="">Contacto</a></li>
                     </Link>
                   <CartWidget />
                 </ul>

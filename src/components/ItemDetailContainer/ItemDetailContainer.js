@@ -1,5 +1,4 @@
 import  { useEffect, useState } from "react";
-// import products from "../../utils/productsMock";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 //Firebase
@@ -13,15 +12,7 @@ const ItemDetailContainer = () =>{
     const [listProducts, setListproducts] = useState([])
     const { id } = useParams()
     
-    // const filterById = () =>{
-    //     products.some( (products) =>{
-    //         if (products.id == id) {
-    //             setListproducts(products)
-    //         }
-    //     })
-    // }
     useEffect( () =>{
-        // filterById()
         getProduct()
         .then((res) =>{
             setListproducts(res)

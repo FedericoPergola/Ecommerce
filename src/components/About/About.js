@@ -3,7 +3,7 @@
 const About = () =>{
     return(
         <>
-        <h2 className="d-flex justify-content-center p-5 fs-1">¿Quines somos?</h2>
+        <h2 className="d-flex justify-content-center p-5 fs-1">¿Quienes somos?</h2>
         <div className="row mx-5">
             <div className="col-6 px-3">
                 <img className="w-75" src="../assests/contact.jpg" alt="" />

@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
 import Home from './pages/Home';
-import Contacto from './pages/Contacto';
 import Detail from './pages/Detail';
 import IteamListContainer from './components/ItemListContainer/ItemListContainer';
 import CartProvider from './context/CartContext';
