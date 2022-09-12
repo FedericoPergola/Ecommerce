@@ -1,6 +1,6 @@
 # Mundo Mate
 
-Mundo Mate es un ecommerce que te permite realizar compras utilizando un carrito y generando una orden de compra a través de Firebase. 
+Mundo Mate es un ecommerce que te permite realizar compras utilizando un carrito y generando ordenes a través de Firebase. 
 
 
 ## Instalacion 🚀

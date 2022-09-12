@@ -129,7 +129,7 @@ const CartList = () => {
                     </div>
                 </div>
                 <div className="w-100 d-flex justify-content-center">
-                    <button className="w-25 btn addCart" onClick={() => setShowModal(true)}><span>Finaliar compra</span></button>
+                    <button className="w-25 btn addCart mb-3" onClick={() => setShowModal(true)}><span>Finaliar compra</span></button>
                 </div>
                 </>
                 : 
